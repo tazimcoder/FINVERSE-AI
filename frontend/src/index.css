@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ==========================================================
-   FINVERSE AI — EXECUTIVE FINTECH DESIGN SYSTEM (PART 1)
+   FINVERSE AI — EXECUTIVE FINTECH DESIGN SYSTEM (PART 3)
    Apple-level polish + Stripe clarity + Revolut UX + Linear motion
    ========================================================== */
 
@@ -70,10 +70,35 @@
   box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(37, 99, 235, 0.15);
 }
 
+.fin-btn-press {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fin-btn-press:active {
+  transform: scale(0.97);
+}
+
 /* Linear-style Focus Ring */
 *:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px #090D16, 0 0 0 4px #38BDF8;
+}
+
+/* AI Orb Indicator */
+.fin-ai-orb {
+  background: radial-gradient(circle at 30% 30%, #a855f7, #06b6d4 60%, #3b82f6);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4), 0 0 30px rgba(6, 182, 212, 0.2);
+  animation: orbPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes orbPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.08);
+    filter: brightness(1.25);
+  }
 }
 
 /* Keyframe Animations */
@@ -89,7 +114,7 @@
 }
 
 .message-animation {
-  animation: messageFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: messageFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes scalePop {
@@ -104,7 +129,37 @@
 }
 
 .animate-scale-pop {
-  animation: scalePop 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scalePop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-toast-slide {
+  animation: toastSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes glowPulse {

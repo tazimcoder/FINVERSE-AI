@@ -1,40 +1,26 @@
 /**
  * ==========================================================
- * FINVERSE AI
- * Chat Menu
+ * FINVERSE AI — New Chat Session Button
+ * Executive action button with plus icon & gradient glow
  * ==========================================================
  */
 
-function ChatMenu({
+import React from "react";
+import Button from "../../../components/ui/Button/Button";
+import { FaPlus } from "react-icons/fa";
 
-    onNewChat,
-
-}) {
-
-    return (
-
-        <button
-
-            onClick={onNewChat}
-
-            className="
-                w-full
-                py-3
-                rounded-xl
-                bg-blue-600
-                text-white
-                hover:bg-blue-700
-                transition
-            "
-
-        >
-
-            + New Chat
-
-        </button>
-
-    );
-
+function ChatMenu({ onNewChat }) {
+  return (
+    <Button
+      variant="ai"
+      size="md"
+      onClick={onNewChat}
+      icon={<FaPlus className="h-3 w-3" />}
+      className="w-full justify-center shadow-lg shadow-purple-500/10"
+    >
+      New Session
+    </Button>
+  );
 }
 
 export default ChatMenu;
