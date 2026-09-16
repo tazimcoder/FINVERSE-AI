@@ -6,6 +6,7 @@
  */
 
 import { NavLink } from "react-router-dom";
+import Logo from "../common/Logo";
 import {
     FaCreditCard,
     FaCalendarAlt,
@@ -145,22 +146,7 @@ function Sidebar({ mobileOpen = false, onCloseMobile = () => { } }) {
             >
                 {/* BRAND HEADER */}
                 <div className="flex h-15 shrink-0 items-center justify-between border-b border-slate-800/80 px-4">
-                    <div className="flex items-center gap-3">
-                        {/* Emblem */}
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-violet-600 font-extrabold text-white text-sm shadow-lg shadow-blue-600/30 ring-1 ring-white/20">
-                            F
-                        </div>
-
-                        {/* Brand Title */}
-                        <div>
-                            <h1 className="text-sm font-black tracking-tight text-white flex items-center gap-1">
-                                FINVERSE <span className="text-[9px] font-extrabold text-blue-400 bg-blue-950/90 px-1.5 py-0.2 rounded border border-blue-800/80 shadow-xs">OS</span>
-                            </h1>
-                            <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400">
-                                Financial Portal
-                            </p>
-                        </div>
-                    </div>
+                    <Logo light={true} size="sm" />
 
                     {/* Mobile Close Button */}
                     <button

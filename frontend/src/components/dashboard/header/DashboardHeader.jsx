@@ -8,6 +8,7 @@ import ThemeToggle from "./ThemeToggle";
 import CommandPalette from "./CommandPalette";
 import CurrencySelector from "./CurrencySelector";
 import AIQuickButton from "./AIQuickButton";
+import Logo from "../../common/Logo";
 
 function DashboardHeader({ onToggleMobileSidebar = () => {}, onSelectAction }) {
     const [isCmdPaletteOpen, setIsCmdPaletteOpen] = useState(false);
@@ -37,12 +38,7 @@ function DashboardHeader({ onToggleMobileSidebar = () => {}, onSelectAction }) {
 
                     {/* Mobile Logo Branding (Visible only on < lg) */}
                     <div className="flex items-center gap-2 lg:hidden">
-                        <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 font-extrabold text-white text-xs shadow-xs">
-                            F
-                        </div>
-                        <span className="text-sm font-black tracking-tight text-slate-900 dark:text-white">
-                            FINVERSE
-                        </span>
+                        <Logo size="sm" />
                     </div>
                 </div>
 
