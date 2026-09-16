@@ -2,6 +2,7 @@
  * ==========================================================
  * FINVERSE AI
  * Transaction Service
+ * User-Specific & Secure
  * ==========================================================
  */
 
@@ -19,90 +20,155 @@ import {
 
 } from "../models/transaction.model.js";
 
+
 /* ==========================================================
-   Create Transaction
+Create Transaction
 ========================================================== */
 
-export async function createTransactionService(data) {
+export async function createTransactionService(
+    userId,
+    data
+) {
 
-    const transactionId = await createTransaction(data);
+    const transactionId =
+        await createTransaction(
+            userId,
+            data
+        );
+
 
     return transactionId;
-
 }
 
+
 /* ==========================================================
-   Get All Transactions
+Get All Transactions
+Only Logged-in User Transactions
 ========================================================== */
 
-export async function getTransactionsService() {
+export async function getTransactionsService(
+    userId
+) {
 
-    return await getAllTransactions();
-
+    return await getAllTransactions(
+        userId
+    );
 }
 
+
 /* ==========================================================
-   Get Transaction By Id
+Get Transaction By Id
+User-Specific
 ========================================================== */
 
-export async function getTransactionService(id) {
+export async function getTransactionService(
+    id,
+    userId
+) {
 
-    const transaction = await getTransactionById(id);
+    const transaction =
+        await getTransactionById(
+            id,
+            userId
+        );
+
 
     if (!transaction) {
 
-        throw new Error("Transaction not found");
+        throw new Error(
+            "Transaction not found"
+        );
 
     }
+
 
     return transaction;
-
 }
 
+
 /* ==========================================================
-   Update Transaction
+Update Transaction
+User-Specific
 ========================================================== */
 
-export async function updateTransactionService(id, data) {
+export async function updateTransactionService(
+    id,
+    userId,
+    data
+) {
 
-    const transaction = await getTransactionById(id);
+    const transaction =
+        await getTransactionById(
+            id,
+            userId
+        );
+
 
     if (!transaction) {
 
-        throw new Error("Transaction not found");
+        throw new Error(
+            "Transaction not found"
+        );
 
     }
 
-    await updateTransaction(id, data);
+
+    const result =
+        await updateTransaction(
+            id,
+            userId,
+            data
+        );
+
 
     return {
 
         success: true,
 
-    };
+        result,
 
+    };
 }
 
+
 /* ==========================================================
-   Delete Transaction
+Delete Transaction
+User-Specific
 ========================================================== */
 
-export async function deleteTransactionService(id) {
+export async function deleteTransactionService(
+    id,
+    userId
+) {
 
-    const transaction = await getTransactionById(id);
+    const transaction =
+        await getTransactionById(
+            id,
+            userId
+        );
+
 
     if (!transaction) {
 
-        throw new Error("Transaction not found");
+        throw new Error(
+            "Transaction not found"
+        );
 
     }
 
-    await deleteTransaction(id);
+
+    const result =
+        await deleteTransaction(
+            id,
+            userId
+        );
+
 
     return {
 
         success: true,
 
-    };
+        result,
 
+    };
 }

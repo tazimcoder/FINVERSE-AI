@@ -2,69 +2,94 @@
  * ==========================================================
  * FINVERSE AI
  * Account Service
+ * User-Specific & Secure
  * ==========================================================
  */
 
 import {
-
     createAccount,
-
     getAccounts,
-
     getAccountById,
-
     updateAccount,
-
     deleteAccount,
-
 } from "../models/account.model.js";
 
-/* ==========================================================
-   Create Account
-========================================================== */
 
-export async function createAccountService(data) {
+// ==========================================================
+// Create Account
+// ==========================================================
 
-    return await createAccount(data);
+export async function createAccountService(
+    userId,
+    data
+) {
 
+    return await createAccount(
+        userId,
+        data
+    );
 }
 
-/* ==========================================================
-   Get All Accounts
-========================================================== */
 
-export async function getAccountsService() {
+// ==========================================================
+// Get All Accounts
+// ==========================================================
 
-    return await getAccounts();
+export async function getAccountsService(
+    userId
+) {
 
+    return await getAccounts(
+        userId
+    );
 }
 
-/* ==========================================================
-   Get Account By Id
-========================================================== */
 
-export async function getAccountByIdService(id) {
+// ==========================================================
+// Get Account By ID
+// ==========================================================
 
-    return await getAccountById(id);
+export async function getAccountByIdService(
+    id,
+    userId
+) {
 
+    return await getAccountById(
+        id,
+        userId
+    );
 }
 
-/* ==========================================================
-   Delete Account
-========================================================== */
 
-export async function deleteAccountService(id) {
+// ==========================================================
+// Update Account
+// ==========================================================
 
-    return await deleteAccount(id);
+export async function updateAccountService(
+    id,
+    userId,
+    data
+) {
 
+    return await updateAccount(
+        id,
+        userId,
+        data
+    );
 }
 
-/* ==========================================================
-   Update Account
-========================================================== */
 
-export async function updateAccountService(id, data) {
+// ==========================================================
+// Delete Account
+// ==========================================================
 
-    return await updateAccount(id, data);
+export async function deleteAccountService(
+    id,
+    userId
+) {
 
+    return await deleteAccount(
+        id,
+        userId
+    );
 }

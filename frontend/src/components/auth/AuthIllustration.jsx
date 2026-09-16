@@ -2,82 +2,214 @@
  * ==========================================================
  * FINVERSE AI
  * Authentication Illustration
- * ----------------------------------------------------------
- * Reusable illustration section for authentication pages.
- * This component will be shown only on large screens.
+ * ==========================================================
+ *
+ * Responsibility:
+ * - Visual branding for authentication pages
+ * - Product feature showcase
+ * - No real user/account data
+ * - No fake financial balances or statistics
+ *
+ * IMPORTANT:
+ * This component must remain reusable for:
+ * - Login
+ * - Register
+ * - Forgot Password
+ * - Future authentication screens
  * ==========================================================
  */
 
 function AuthIllustration() {
+
     return (
-        <div className="relative flex h-full items-center justify-center">
 
-            {/* Background Glow */}
-            <div className="absolute h-80 w-80 rounded-full bg-blue-500/20 blur-3xl"></div>
+        <div className="relative flex w-full max-w-xl items-center justify-center">
 
-            {/* Main Card */}
-            <div className="relative w-full max-w-md rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-xl">
+            {/* ==================================================
+                Background Glow
+            ================================================== */}
 
-                <h2 className="mb-8 text-center text-2xl font-bold text-white">
-                    FINVERSE AI
-                </h2>
+            <div className="absolute h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
 
-                {/* Fake Dashboard */}
-                <div className="space-y-5">
+            <div className="absolute -right-10 top-10 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl" />
 
-                    {/* Balance */}
-                    <div className="rounded-2xl bg-white/10 p-5">
-                        <p className="text-sm text-blue-100">
-                            Total Balance
-                        </p>
 
-                        <h3 className="mt-2 text-3xl font-bold text-white">
-                            ₹12,45,890
-                        </h3>
+            {/* ==================================================
+                Main Product Card
+            ================================================== */}
+
+            <div className="relative w-full max-w-md rounded-3xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
+
+                {/* ==================================================
+                    Brand
+                ================================================== */}
+
+                <div className="mb-8 text-center">
+
+                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-2xl font-bold text-white shadow-lg">
+
+                        F
+
                     </div>
 
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <h2 className="text-2xl font-bold text-white">
+                        FINVERSE AI
+                    </h2>
 
-                        <div className="rounded-xl bg-white/10 p-4">
-                            <p className="text-xs text-blue-100">
-                                Loans
-                            </p>
+                    <p className="mt-2 text-sm text-blue-100">
+                        Global Financial Operating System
+                    </p>
 
-                            <h4 className="mt-2 text-lg font-semibold text-white">
-                                08
-                            </h4>
+                </div>
+
+
+                {/* ==================================================
+                    Product Description
+                ================================================== */}
+
+                <div className="mb-6 rounded-2xl border border-white/10 bg-white/10 p-5">
+
+                    <p className="text-sm leading-6 text-blue-50">
+
+                        One intelligent platform for managing
+                        banking, loans, wallet, investments,
+                        analytics and financial decisions.
+
+                    </p>
+
+                </div>
+
+
+                {/* ==================================================
+                    Platform Features
+                ================================================== */}
+
+                <div className="space-y-3">
+
+                    {/* Banking */}
+
+                    <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4">
+
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-500/20 text-lg">
+
+                            🏦
+
                         </div>
 
-                        <div className="rounded-xl bg-white/10 p-4">
+                        <div>
+
+                            <h3 className="font-semibold text-white">
+                                Digital Banking
+                            </h3>
+
                             <p className="text-xs text-blue-100">
-                                Wallet
+                                Manage your financial accounts
                             </p>
 
-                            <h4 className="mt-2 text-lg font-semibold text-white">
-                                Active
-                            </h4>
                         </div>
 
                     </div>
 
-                    {/* AI Status */}
-                    <div className="rounded-xl bg-emerald-500/20 p-4">
-                        <p className="text-sm text-emerald-200">
-                            🤖 AI Financial Assistant
-                        </p>
 
-                        <p className="mt-2 text-white">
-                            Monitoring your finances in real time.
-                        </p>
+                    {/* Loans */}
+
+                    <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4">
+
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-500/20 text-lg">
+
+                            💳
+
+                        </div>
+
+                        <div>
+
+                            <h3 className="font-semibold text-white">
+                                Smart Loans
+                            </h3>
+
+                            <p className="text-xs text-blue-100">
+                                Explore personalized financing
+                            </p>
+
+                        </div>
+
                     </div>
+
+
+                    {/* Investments */}
+
+                    <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4">
+
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-purple-500/20 text-lg">
+
+                            📈
+
+                        </div>
+
+                        <div>
+
+                            <h3 className="font-semibold text-white">
+                                Investments
+                            </h3>
+
+                            <p className="text-xs text-blue-100">
+                                Understand and manage investments
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    {/* AI */}
+
+                    <div className="flex items-center gap-4 rounded-xl border border-emerald-300/10 bg-emerald-500/10 p-4">
+
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-400/20 text-lg">
+
+                            🤖
+
+                        </div>
+
+                        <div>
+
+                            <h3 className="font-semibold text-white">
+                                AI Financial Assistant
+                            </h3>
+
+                            <p className="text-xs text-emerald-100">
+                                Intelligent financial guidance
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                {/* ==================================================
+                    Security Message
+                ================================================== */}
+
+                <div className="mt-6 flex items-center justify-center gap-2 text-xs text-blue-100">
+
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400/20">
+
+                        ✓
+
+                    </span>
+
+                    Secure authentication & protected access
 
                 </div>
 
             </div>
 
         </div>
+
     );
+
 }
 
 export default AuthIllustration;

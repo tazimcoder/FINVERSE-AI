@@ -2,6 +2,7 @@
  * ==========================================================
  * FINVERSE AI
  * Transaction Routes
+ * Protected & User-Specific
  * ==========================================================
  */
 
@@ -9,48 +10,126 @@ import { Router } from "express";
 
 import {
 
-    createTransaction,
+   createTransaction,
 
-    getTransactions,
+   getTransactions,
 
-    getTransactionById,
+   getTransactionById,
 
-    updateTransaction,
+   updateTransaction,
 
-    deleteTransaction,
+   deleteTransaction,
 
 } from "../controllers/transaction.controller.js";
 
+import {
+
+   authenticateToken,
+
+} from "../middleware/auth.middleware.js";
+
+
 const router = Router();
 
-/* ==========================================================
-   Create Transaction
-========================================================== */
-
-router.post("/", createTransaction);
 
 /* ==========================================================
-   Get All Transactions
+Create Transaction
+
+POST /api/v1/transactions
+
+Protected Route
+Requires Valid JWT
 ========================================================== */
 
-router.get("/", getTransactions);
+router.post(
+
+   "/",
+
+   authenticateToken,
+
+   createTransaction
+
+);
+
 
 /* ==========================================================
-   Get Transaction By Id
+Get All Transactions
+
+GET /api/v1/transactions
+
+Protected Route
+Only Logged-in User Transactions
 ========================================================== */
 
-router.get("/:id", getTransactionById);
+router.get(
+
+   "/",
+
+   authenticateToken,
+
+   getTransactions
+
+);
+
 
 /* ==========================================================
-   Update Transaction
+Get Transaction By Id
+
+GET /api/v1/transactions/:id
+
+Protected Route
+User-Specific
 ========================================================== */
 
-router.put("/:id", updateTransaction);
+router.get(
+
+   "/:id",
+
+   authenticateToken,
+
+   getTransactionById
+
+);
+
 
 /* ==========================================================
-   Delete Transaction
+Update Transaction
+
+PUT /api/v1/transactions/:id
+
+Protected Route
+User-Specific
 ========================================================== */
 
-router.delete("/:id", deleteTransaction);
+router.put(
+
+   "/:id",
+
+   authenticateToken,
+
+   updateTransaction
+
+);
+
+
+/* ==========================================================
+Delete Transaction
+
+DELETE /api/v1/transactions/:id
+
+Protected Route
+User-Specific
+========================================================== */
+
+router.delete(
+
+   "/:id",
+
+   authenticateToken,
+
+   deleteTransaction
+
+);
+
 
 export default router;

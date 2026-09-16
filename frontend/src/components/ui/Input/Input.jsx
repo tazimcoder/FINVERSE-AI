@@ -19,7 +19,9 @@ function Input({
 
     error,
 
-    required = false
+    required = false,
+
+    ...props
 
 }) {
 
@@ -57,6 +59,8 @@ function Input({
 
                 onChange={onChange}
 
+                {...props}
+
                 className="
                     w-full
                     rounded-xl
@@ -70,6 +74,7 @@ function Input({
                 "
 
             />
+
 
             {error && (
 

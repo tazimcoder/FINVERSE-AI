@@ -7,12 +7,17 @@
 
 import api from "../../../services/api";
 
-/* ==========================================================
-   Dashboard Summary
-========================================================== */
+
+/**
+ * ==========================================================
+ * GET DASHBOARD
+ * ==========================================================
+ */
 
 export async function getDashboardApi() {
 
-    return api.get("/dashboard");
+    const response =
+        await api.get("/dashboard");
 
+    return response.data;
 }

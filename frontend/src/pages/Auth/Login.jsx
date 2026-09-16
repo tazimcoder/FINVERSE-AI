@@ -1,19 +1,14 @@
 /**
- * Login Page
+ * ==========================================================
+ * FINVERSE AI
+ * Login Page Proxy
+ * ==========================================================
  */
 
+import LoginPage from "../../features/auth/pages/LoginPage";
+
 function Login() {
-
-    return (
-
-        <div>
-
-            <h1>Login Page</h1>
-
-        </div>
-
-    )
-
+    return <LoginPage />;
 }
 
 export default Login;

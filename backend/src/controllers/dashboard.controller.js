@@ -3,21 +3,49 @@
  * FINVERSE AI
  * Dashboard Controller
  * ==========================================================
+ *
+ * Responsibility:
+ * - Request receive karna
+ * - Authenticated user identify karna
+ * - Dashboard service call karna
+ * - API response return karna
+ *
+ * ==========================================================
  */
 
 import {
     getDashboardSummaryService,
 } from "../services/dashboard.service.js";
 
-/* ==========================================================
-   Dashboard Summary
-========================================================== */
+
+/**
+ * ==========================================================
+ * GET DASHBOARD SUMMARY
+ * ==========================================================
+ */
 
 export async function getDashboardSummary(req, res) {
 
     try {
 
-        const dashboard = await getDashboardSummaryService();
+        /**
+         * JWT middleware se authenticated user.
+         */
+
+        const userId = req.user.id;
+
+
+        /**
+         * Dashboard data.
+         */
+
+        const dashboard =
+            await getDashboardSummaryService(userId);
+
+
+        /**
+         * Success response.
+         */
 
         return res.status(200).json({
 
@@ -31,16 +59,20 @@ export async function getDashboardSummary(req, res) {
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            "Dashboard Controller Error:",
+            error
+        );
+
 
         return res.status(500).json({
 
             success: false,
 
-            message: error.message,
+            message:
+                "Failed to load dashboard.",
 
         });
 
     }
-
 }

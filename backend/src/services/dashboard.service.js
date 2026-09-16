@@ -3,50 +3,110 @@
  * FINVERSE AI
  * Dashboard Service
  * ==========================================================
+ *
+ * Responsibility:
+ *
+ * - Combine dashboard model queries
+ * - Prepare one clean dashboard response
+ * - Easy to extend in future
+ *
+ * ==========================================================
  */
 
 import {
-
     getTotalBalance,
-
     getTotalIncome,
-
     getTotalExpense,
-
     getTotalAccounts,
-
     getRecentTransactions,
-
+    getExpenseByCategory,
+    getMonthlyTrend,
 } from "../models/dashboard.model.js";
 
-/* ==========================================================
-   Dashboard Summary
-========================================================== */
 
-export async function getDashboardSummaryService() {
+/**
+ * ==========================================================
+ * GET DASHBOARD SUMMARY
+ * ==========================================================
+ */
 
-    const balance = await getTotalBalance();
+export async function getDashboardSummaryService(userId) {
 
-    const income = await getTotalIncome();
+    const [
+        balance,
+        income,
+        expense,
+        accounts,
+        recentTransactions,
+        expenseByCategory,
+        monthlyTrend,
+    ] = await Promise.all([
 
-    const expense = await getTotalExpense();
+        getTotalBalance(userId),
 
-    const accounts = await getTotalAccounts();
+        getTotalIncome(userId),
 
-    const recentTransactions = await getRecentTransactions();
+        getTotalExpense(userId),
+
+        getTotalAccounts(userId),
+
+        getRecentTransactions(userId),
+
+        getExpenseByCategory(userId),
+
+        getMonthlyTrend(userId),
+
+    ]);
+
+
+    /**
+     * ======================================================
+     * RETURN DASHBOARD
+     * ======================================================
+     */
 
     return {
 
-        totalBalance: Number(balance.totalBalance),
+        /**
+         * Summary
+         */
 
-        totalIncome: Number(income.totalIncome),
+        totalBalance:
+            Number(balance?.totalBalance || 0),
 
-        totalExpense: Number(expense.totalExpense),
+        totalIncome:
+            Number(income?.totalIncome || 0),
 
-        totalAccounts: Number(accounts.totalAccounts),
+        totalExpense:
+            Number(expense?.totalExpense || 0),
 
-        recentTransactions,
+        totalAccounts:
+            Number(accounts?.totalAccounts || 0),
+
+
+        /**
+         * Transactions
+         */
+
+        recentTransactions:
+            Array.isArray(recentTransactions)
+                ? recentTransactions
+                : [],
+
+
+        /**
+         * Analytics
+         */
+
+        expenseByCategory:
+            Array.isArray(expenseByCategory)
+                ? expenseByCategory
+                : [],
+
+        monthlyTrend:
+            Array.isArray(monthlyTrend)
+                ? monthlyTrend
+                : [],
 
     };
-
 }

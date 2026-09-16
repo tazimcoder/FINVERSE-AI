@@ -1,29 +1,37 @@
 /**
  * ==========================================================
- * FINVERSE AI
+ * FINVERSE
  * Authentication Service
- * ----------------------------------------------------------
- * Responsibility:
- * - Business Logic
- * - Call Authentication APIs
- * - Return Response
  * ==========================================================
  */
 
-import { loginApi } from "../api/authApi";
+import {
+    loginApi,
+    registerApi,
+    sendOtpApi,
+    verifyOtpApi
+} from "../api/authApi";
 
+// Login
 export const loginService = async (credentials) => {
+    const response = await loginApi(credentials);
+    return response.data;
+};
 
-    try {
+// Register
+export const registerService = async (userData) => {
+    const response = await registerApi(userData);
+    return response.data;
+};
 
-        const response = await loginApi(credentials);
+// Send OTP
+export const sendOtpService = async (otpData) => {
+    const response = await sendOtpApi(otpData);
+    return response.data;
+};
 
-        return response.data;
-
-    } catch (error) {
-
-        throw error;
-
-    }
-
+// Verify OTP
+export const verifyOtpService = async (otpData) => {
+    const response = await verifyOtpApi(otpData);
+    return response.data;
 };

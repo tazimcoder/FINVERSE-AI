@@ -1,25 +1,74 @@
-import { Route, Navigate } from "react-router-dom";
+/**
+ * ==========================================================
+ * FINVERSE AI
+ * Protected Routes
+ * ==========================================================
+ *
+ * Responsibility:
+ * - Protect authenticated routes
+ * - Wait for authentication restoration
+ * - Redirect unauthenticated users to Login
+ * - Prepare role-based route protection
+ * ==========================================================
+ */
 
-import Dashboard from "../pages/Dashboard/Dashboard";
+import { Navigate, Outlet } from "react-router-dom";
+
+import useAuth from "../hooks/useAuth";
+
 import ROUTES from "./RouteConstants";
+
 
 function ProtectedRoutes() {
 
-    const token = localStorage.getItem("token");
+    const {
+        loading,
+        isAuthenticated,
+    } = useAuth();
 
-    return (
-        <>
-            <Route
-                path={ROUTES.DASHBOARD}
-                element={
-                    token
-                        ? <Dashboard />
-                        : <Navigate to={ROUTES.LOGIN} replace />
-                }
+
+    // ======================================================
+    // Authentication State Loading
+    // ======================================================
+
+    if (loading) {
+
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+
+                <p className="text-slate-500">
+                    Loading FINVERSE AI...
+                </p>
+
+            </div>
+        );
+
+    }
+
+
+    // ======================================================
+    // Authentication Check
+    // ======================================================
+
+    if (!isAuthenticated) {
+
+        return (
+            <Navigate
+                to={ROUTES.LOGIN}
+                replace
             />
-        </>
-    );
+        );
+
+    }
+
+
+    // ======================================================
+    // Protected Route
+    // ======================================================
+
+    return <Outlet />;
 
 }
+
 
 export default ProtectedRoutes;

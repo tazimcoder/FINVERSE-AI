@@ -1,1 +1,392 @@
 @import "tailwindcss";
+
+/* ==========================================================
+   FINVERSE AI Masterclass Animations & Aesthetic Utilities
+========================================================== */
+
+@keyframes messageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-animation {
+    animation: messageFadeIn 0.35s ease-out;
+}
+
+/* Google Material 3 Expressive Card Reveal Easing */
+@keyframes googleMaterialReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+.animate-google-reveal {
+    animation: googleMaterialReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Smooth Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scale Pop In for Modals & Badges */
+@keyframes scalePop {
+    0% {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-scale-pop {
+    animation: scalePop 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle Glowing Border Pulse */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(37, 99, 235, 0.15);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(99, 102, 241, 0.35);
+    }
+}
+
+.animate-glow-pulse {
+    animation: glowPulse 3s infinite ease-in-out;
+}
+
+/* Infinite Marquee Ticker for Live Rates */
+@keyframes rateTicker {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-rate-ticker {
+    display: flex;
+    width: max-content;
+    animation: rateTicker 25s linear infinite;
+}
+
+.animate-rate-ticker:hover {
+    animation-play-state: paused;
+}
+
+/* Smooth Card Hover Lift */
+.smooth-hover-card {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.smooth-hover-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ==========================================================
+   FINVERSE AI ADMIN MULTI-THEME ENGINE (12 MODES)
+========================================================== */
+
+/* 1. EXECUTIVE DARK (DEFAULT) */
+[data-admin-theme="dark"], :root:not([data-admin-theme]) {
+    --admin-bg: #0f172a;
+    --admin-header-bg: #020617;
+    --admin-sidebar-bg: #020617;
+    --admin-card-bg: #020617;
+    --admin-card-sub-bg: #0f172a;
+    --admin-border: #1e293b;
+    --admin-text-main: #f8fafc;
+    --admin-text-sub: #94a3b8;
+}
+
+/* 2. CLEAN LIGHT (EXECUTIVE DAY) */
+[data-admin-theme="light"] {
+    --admin-bg: #f8fafc;
+    --admin-header-bg: #ffffff;
+    --admin-sidebar-bg: #ffffff;
+    --admin-card-bg: #ffffff;
+    --admin-card-sub-bg: #f1f5f9;
+    --admin-border: #e2e8f0;
+    --admin-text-main: #0f172a;
+    --admin-text-sub: #475569;
+}
+
+/* 3. MIDNIGHT NAVY */
+[data-admin-theme="midnight"] {
+    --admin-bg: #0a0e23;
+    --admin-header-bg: #070a1a;
+    --admin-sidebar-bg: #070a1a;
+    --admin-card-bg: #0e1430;
+    --admin-card-sub-bg: #141c42;
+    --admin-border: #1e295d;
+    --admin-text-main: #e0e7ff;
+    --admin-text-sub: #818cf8;
+}
+
+/* 4. CYBERPUNK NEON */
+[data-admin-theme="cyberpunk"] {
+    --admin-bg: #12081c;
+    --admin-header-bg: #0e0516;
+    --admin-sidebar-bg: #0e0516;
+    --admin-card-bg: #1c0c2a;
+    --admin-card-sub-bg: #261138;
+    --admin-border: #4a1d6d;
+    --admin-text-main: #f5d0fe;
+    --admin-text-sub: #c084fc;
+}
+
+/* 5. EMERALD MINT */
+[data-admin-theme="emerald"] {
+    --admin-bg: #082416;
+    --admin-header-bg: #04140d;
+    --admin-sidebar-bg: #04140d;
+    --admin-card-bg: #0c301e;
+    --admin-card-sub-bg: #11422a;
+    --admin-border: #166534;
+    --admin-text-main: #d1fae5;
+    --admin-text-sub: #34d399;
+}
+
+/* 6. SOLARIZED GOLD */
+[data-admin-theme="solarized"] {
+    --admin-bg: #241808;
+    --admin-header-bg: #140d04;
+    --admin-sidebar-bg: #140d04;
+    --admin-card-bg: #30200a;
+    --admin-card-sub-bg: #422c0d;
+    --admin-border: #78350f;
+    --admin-text-main: #fef3c7;
+    --admin-text-sub: #fbbf24;
+}
+
+/* 7. HIGH CONTRAST OLED */
+[data-admin-theme="oled"] {
+    --admin-bg: #000000;
+    --admin-header-bg: #000000;
+    --admin-sidebar-bg: #000000;
+    --admin-card-bg: #09090b;
+    --admin-card-sub-bg: #18181b;
+    --admin-border: #27272a;
+    --admin-text-main: #ffffff;
+    --admin-text-sub: #a1a1aa;
+}
+
+/* 8. ROYAL AMETHYST */
+[data-admin-theme="royal"] {
+    --admin-bg: #190a28;
+    --admin-header-bg: #0f051a;
+    --admin-sidebar-bg: #0f051a;
+    --admin-card-bg: #250e3b;
+    --admin-card-sub-bg: #32134f;
+    --admin-border: #581c87;
+    --admin-text-main: #f3e8ff;
+    --admin-text-sub: #c084fc;
+}
+
+/* 9. SUNSET CRIMSON */
+[data-admin-theme="sunset"] {
+    --admin-bg: #280a12;
+    --admin-header-bg: #1a040a;
+    --admin-sidebar-bg: #1a040a;
+    --admin-card-bg: #3b0e1b;
+    --admin-card-sub-bg: #4f1324;
+    --admin-border: #881337;
+    --admin-text-main: #ffe4e6;
+    --admin-text-sub: #fb7185;
+}
+
+/* 10. NORDIC FROST */
+[data-admin-theme="frost"] {
+    --admin-bg: #0b192c;
+    --admin-header-bg: #050d18;
+    --admin-sidebar-bg: #050d18;
+    --admin-card-bg: #1e3e62;
+    --admin-card-sub-bg: #162f4c;
+    --admin-border: #008dda;
+    --admin-text-main: #e0f2fe;
+    --admin-text-sub: #38bdf8;
+}
+
+/* 11. MATRIX TERMINAL */
+[data-admin-theme="matrix"] {
+    --admin-bg: #030a04;
+    --admin-header-bg: #010502;
+    --admin-sidebar-bg: #010502;
+    --admin-card-bg: #07170a;
+    --admin-card-sub-bg: #0b2410;
+    --admin-border: #14532d;
+    --admin-text-main: #4ade80;
+    --admin-text-sub: #22c55e;
+}
+
+/* 12. ROSE GOLD LUXURY */
+[data-admin-theme="rosegold"] {
+    --admin-bg: #26141a;
+    --admin-header-bg: #190c11;
+    --admin-sidebar-bg: #190c11;
+    --admin-card-bg: #381e27;
+    --admin-card-sub-bg: #4a2834;
+    --admin-border: #9f1239;
+    --admin-text-main: #fff1f2;
+    --admin-text-sub: #f43f5e;
+}
+
+/* 13. SYNTHWAVE 80S */
+[data-admin-theme="synthwave"] {
+    --admin-bg: #180b28;
+    --admin-header-bg: #0f061a;
+    --admin-sidebar-bg: #0f061a;
+    --admin-card-bg: #260f3c;
+    --admin-card-sub-bg: #361654;
+    --admin-border: #86198f;
+    --admin-text-main: #fae8ff;
+    --admin-text-sub: #f43f5e;
+}
+
+/* 14. TITANIUM STEEL */
+[data-admin-theme="titanium"] {
+    --admin-bg: #161b22;
+    --admin-header-bg: #0d1117;
+    --admin-sidebar-bg: #0d1117;
+    --admin-card-bg: #21262d;
+    --admin-card-sub-bg: #30363d;
+    --admin-border: #484f58;
+    --admin-text-main: #f0f6fc;
+    --admin-text-sub: #8b949e;
+}
+
+/* 15. MOCHA ESPRESSO */
+[data-admin-theme="coffee"] {
+    --admin-bg: #201510;
+    --admin-header-bg: #140d09;
+    --admin-sidebar-bg: #140d09;
+    --admin-card-bg: #301f18;
+    --admin-card-sub-bg: #422b21;
+    --admin-border: #78350f;
+    --admin-text-main: #fef3c7;
+    --admin-text-sub: #d97706;
+}
+
+/* 16. DEEP COBALT BLUE */
+[data-admin-theme="cobalt"] {
+    --admin-bg: #081430;
+    --admin-header-bg: #040b1c;
+    --admin-sidebar-bg: #040b1c;
+    --admin-card-bg: #0c1e46;
+    --admin-card-sub-bg: #122c66;
+    --admin-border: #1d4ed8;
+    --admin-text-main: #dbeafe;
+    --admin-text-sub: #60a5fa;
+}
+
+/* 17. CHAMPAGNE ONYX */
+[data-admin-theme="champagne"] {
+    --admin-bg: #12100c;
+    --admin-header-bg: #000000;
+    --admin-sidebar-bg: #000000;
+    --admin-card-bg: #1c1812;
+    --admin-card-sub-bg: #29241b;
+    --admin-border: #d97706;
+    --admin-text-main: #fef3c7;
+    --admin-text-sub: #fbbf24;
+}
+
+/* 18. GLASSMORPHISM ICE */
+[data-admin-theme="glass"] {
+    --admin-bg: #0a1e24;
+    --admin-header-bg: #051216;
+    --admin-sidebar-bg: #051216;
+    --admin-card-bg: #102e37;
+    --admin-card-sub-bg: #18424f;
+    --admin-border: #0f766e;
+    --admin-text-main: #ccfbf1;
+    --admin-text-sub: #2dd4bf;
+}
+
+/* 19. BLOOD MOON RED */
+[data-admin-theme="bloodmoon"] {
+    --admin-bg: #1e0a0c;
+    --admin-header-bg: #120507;
+    --admin-sidebar-bg: #120507;
+    --admin-card-bg: #2d0e12;
+    --admin-card-sub-bg: #40141a;
+    --admin-border: #991b1b;
+    --admin-text-main: #fee2e2;
+    --admin-text-sub: #ef4444;
+}
+
+/* 20. MONOCHROME PRO */
+[data-admin-theme="monochrome"] {
+    --admin-bg: #e2e8f0;
+    --admin-header-bg: #ffffff;
+    --admin-sidebar-bg: #f1f5f9;
+    --admin-card-bg: #ffffff;
+    --admin-card-sub-bg: #f8fafc;
+    --admin-border: #cbd5e1;
+    --admin-text-main: #0f172a;
+    --admin-text-sub: #334155;
+}
+
+/* DYNAMIC ADAPTIVE STYLING FOR LIGHT MODE IN ADMIN PORTAL */
+[data-admin-theme="light"] main .bg-slate-950,
+[data-admin-theme="light"] main .bg-slate-900,
+[data-admin-theme="monochrome"] main .bg-slate-950,
+[data-admin-theme="monochrome"] main .bg-slate-900 {
+    background-color: var(--admin-card-bg) !important;
+    color: var(--admin-text-main) !important;
+    border-color: var(--admin-border) !important;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05) !important;
+}
+
+[data-admin-theme="light"] main .text-white,
+[data-admin-theme="monochrome"] main .text-white {
+    color: var(--admin-text-main) !important;
+}
+
+[data-admin-theme="light"] main .text-slate-400,
+[data-admin-theme="light"] main .text-slate-300,
+[data-admin-theme="monochrome"] main .text-slate-400,
+[data-admin-theme="monochrome"] main .text-slate-300 {
+    color: var(--admin-text-sub) !important;
+}
+
+[data-admin-theme="light"] main .border-slate-800,
+[data-admin-theme="light"] main .border-slate-700,
+[data-admin-theme="monochrome"] main .border-slate-800,
+[data-admin-theme="monochrome"] main .border-slate-700 {
+    border-color: var(--admin-border) !important;
+}
+
+[data-admin-theme="light"] main input,
+[data-admin-theme="monochrome"] main input {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+}
