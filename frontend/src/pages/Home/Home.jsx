@@ -1,7 +1,7 @@
 /**
  * ==========================================================
- * FINVERSE AI — Executive Dark Financial Landing Page
- * World-Class Apple + Stripe + Revolut Level Dark Theme
+ * FINVERSE AI — Executive Landing Page
+ * Preserving original content, text, and structure with Executive Dark UI/UX
  * ==========================================================
  */
 
@@ -15,10 +15,7 @@ import {
   FaRobot,
   FaArrowRight,
   FaShieldAlt,
-  FaSitemap,
-  FaLock,
-  FaBolt,
-  FaCheckCircle
+  FaSitemap
 } from "react-icons/fa";
 import HomeNavbar from "../../components/home/HomeNavbar";
 import HomeFooter from "../../components/home/HomeFooter";
@@ -70,18 +67,18 @@ function GoogleMaterialCard({ mod, idx, isVisible, onOpenTree }) {
 
   return (
     <div
-      style={{ animationDelay: `${idx * 100}ms` }}
+      style={{ animationDelay: `${idx * 110}ms` }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={() => onOpenTree(mod)}
-      className={`group relative rounded-2xl border border-slate-800/80 bg-[#0F172A]/80 backdrop-blur-xl p-7 shadow-2xl hover:border-cyan-500/50 hover:-translate-y-1.5 flex flex-col justify-between cursor-pointer select-none transition-all duration-300 overflow-hidden fin-card-hover ${revealClass}`}
+      className={`group relative rounded-3xl border border-slate-800/80 bg-[#0F172A]/80 backdrop-blur-xl p-7 shadow-2xl hover:border-cyan-500/50 hover:-translate-y-2 flex flex-col justify-between cursor-pointer select-none transition-all duration-300 overflow-hidden fin-card-hover ${revealClass}`}
     >
       {/* Ambient Spotlight Glow */}
       {mousePos.isHovered && (
         <div
           className="pointer-events-none absolute -inset-px transition-opacity duration-300 opacity-100"
           style={{
-            background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6, 182, 212, 0.12), transparent 80%)`,
+            background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(56, 189, 248, 0.12), transparent 80%)`,
           }}
         />
       )}
@@ -89,31 +86,31 @@ function GoogleMaterialCard({ mod, idx, isVisible, onOpenTree }) {
       <div className="relative z-10">
         {/* Header Badge */}
         <div className="flex items-center justify-between mb-6">
-          <div className={`flex h-12 w-12 items-center justify-center rounded-xl border ${mod.lightBg} shadow-md group-hover:scale-110 transition-transform duration-300`}>
-            <Icon className={`h-5 w-5 ${mod.iconColor}`} />
+          <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border ${mod.lightBg} shadow-md group-hover:scale-110 transition-transform duration-300`}>
+            <Icon className={`h-6 w-6 ${mod.iconColor}`} />
           </div>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-md border border-cyan-500/20 font-mono">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">
             {mod.tag}
           </span>
         </div>
 
         {/* Title & Description */}
-        <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors tracking-tight">
+        <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
           {mod.title}
         </h3>
-        <p className="mt-2.5 text-xs text-slate-400 leading-relaxed font-medium">
+        <p className="mt-3 text-xs text-slate-400 leading-relaxed font-medium">
           {mod.desc}
         </p>
       </div>
 
       {/* Card Action Footer */}
-      <div className="relative z-10 mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between">
-        <span className="text-xs font-semibold text-slate-400 group-hover:text-cyan-400 transition-colors flex items-center gap-1.5">
-          <FaSitemap className="h-3 w-3 text-cyan-400" /> View Process Flow
+      <div className="relative z-10 mt-8 pt-4 border-t border-slate-800 flex items-center justify-between">
+        <span className="text-xs font-bold text-slate-400 group-hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <FaSitemap className="h-3 w-3 text-cyan-400" /> View Process Tree
         </span>
 
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-400 group-hover:bg-cyan-500 group-hover:text-slate-950 group-hover:border-cyan-400 group-hover:scale-105 shadow-sm transition-all duration-200">
-          <FaArrowRight className="h-3 w-3" />
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 border border-slate-800 text-slate-300 group-hover:bg-cyan-500 group-hover:text-slate-950 group-hover:scale-110 shadow-md transition-all duration-300">
+          <FaArrowRight className="h-3.5 w-3.5" />
         </div>
       </div>
     </div>
@@ -316,12 +313,12 @@ function Home() {
       ]
     },
     {
-      title: "AI Financial Advisor",
-      desc: "Autonomous spending advisory, predictive budget breakdowns, and proactive financial health alerts.",
+      title: "Smart Financial Assistant",
+      desc: "Intelligent spending advisory, predictive budget breakdowns, and proactive financial health alerts.",
       icon: FaRobot,
       tag: "Intelligence Subsystem",
-      lightBg: "bg-purple-500/10 border-purple-500/20",
-      iconColor: "text-purple-400",
+      lightBg: "bg-cyan-500/10 border-cyan-500/20",
+      iconColor: "text-cyan-400",
       treeSteps: [
         {
           stepNumber: "STEP 01",
@@ -366,8 +363,8 @@ function Home() {
       desc: "Role-based access controls, encrypted authorization tokens, and immutable security audit trail logs.",
       icon: FaShieldAlt,
       tag: "Security Subsystem",
-      lightBg: "bg-teal-500/10 border-teal-500/20",
-      iconColor: "text-teal-400",
+      lightBg: "bg-emerald-500/10 border-emerald-500/20",
+      iconColor: "text-emerald-400",
       treeSteps: [
         {
           stepNumber: "STEP 01",
@@ -412,90 +409,66 @@ function Home() {
   return (
     <div className="min-h-screen bg-[#090D16] text-slate-100 font-sans relative overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-300 flex flex-col justify-between">
       {/* Background Ambient Mesh */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `radial-gradient(#06b6d4 1px, transparent 1px)`,
-            backgroundSize: '28px 28px',
+            backgroundImage: `radial-gradient(#38bdf8 1px, transparent 1px)`,
+            backgroundSize: '24px 24px',
           }}
         />
 
-        <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-to-b from-teal-500/10 via-cyan-500/10 to-transparent blur-[140px] rounded-full" />
-        <div className="absolute top-[600px] right-[-150px] w-[600px] h-[600px] bg-emerald-500/10 blur-[140px] rounded-full" />
-        <div className="absolute top-[1200px] left-[-150px] w-[600px] h-[600px] bg-violet-500/10 blur-[140px] rounded-full" />
+        <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-blue-600/15 via-cyan-500/10 to-transparent blur-3xl rounded-full" />
+        <div className="absolute top-[600px] right-[-100px] w-[500px] h-[500px] bg-emerald-500/10 blur-3xl rounded-full" />
+        <div className="absolute top-[1200px] left-[-100px] w-[500px] h-[500px] bg-indigo-500/10 blur-3xl rounded-full" />
       </div>
 
       {/* Navigation Bar */}
       <HomeNavbar />
 
       {/* Hero Section */}
-      <main className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-24 text-center">
-        {/* Top AI Pulse Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 mb-8 shadow-xl shadow-cyan-500/5 animate-fade-in-up">
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-          <span className="text-xs font-mono font-bold text-cyan-300">GEMINI 2.5 FLASH FINANCIAL INTELLIGENCE</span>
-        </div>
-
-        {/* Hero Title */}
-        <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.15]">
-          Autonomous <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-violet-400">Financial Operating System</span>
+      <main className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-20 text-center">
+        {/* Title */}
+        <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white max-w-4xl mx-auto leading-[1.1]">
+          FINVERSE
         </h1>
 
-        <p className="mt-6 text-sm sm:text-base xl:text-lg text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed">
-          Manage accounts, paperless loan servicing, real-time transaction ledgers, and wealth intelligence from one executive platform.
+        {/* Subtitle */}
+        <p className="mt-6 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed">
+          Manage your accounts, transactions, savings, investments and financial decisions from one intelligent platform.
         </p>
 
-        {/* Primary CTA Buttons */}
+        {/* Primary Action Buttons */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            to="/register"
-            className="w-full sm:w-auto rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-slate-950 font-extrabold px-8 py-3.5 text-sm transition shadow-xl shadow-cyan-500/20 flex items-center justify-center gap-2.5 cursor-pointer fin-btn-press"
+            to="/login"
+            className="w-full sm:w-auto rounded-2xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-slate-950 font-extrabold px-8 py-3.5 text-sm transition shadow-xl shadow-cyan-500/20 flex items-center justify-center gap-2 cursor-pointer fin-btn-press"
           >
-            <span>Launch Financial OS</span>
-            <FaArrowRight className="h-4 w-4" />
+            <span>Login</span>
+            <FaArrowRight className="h-3.5 w-3.5" />
           </Link>
 
           <Link
-            to="/login"
-            className="w-full sm:w-auto rounded-xl border border-slate-800 bg-slate-900/80 px-8 py-3.5 text-sm font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition shadow-md flex items-center justify-center gap-2 cursor-pointer"
+            to="/register"
+            className="w-full sm:w-auto rounded-2xl border border-slate-800 bg-slate-900/80 px-8 py-3.5 text-sm font-bold text-slate-200 hover:bg-slate-800 hover:text-white transition shadow-sm flex items-center justify-center gap-2 cursor-pointer"
           >
-            <span>Sign In to Portal</span>
+            <span>Create Account</span>
           </Link>
         </div>
 
-        {/* Executive Telemetry Grid */}
-        <div className="mt-14 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 pt-10 border-t border-slate-800/80">
-          <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-3.5 text-center">
-            <p className="text-xl sm:text-2xl font-black text-white tabular-nums tracking-tight">$2.4B+</p>
-            <p className="text-[11px] text-slate-400 font-medium mt-0.5">Volume Processed</p>
-          </div>
-          <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-3.5 text-center">
-            <p className="text-xl sm:text-2xl font-black text-emerald-400 tabular-nums tracking-tight">99.99%</p>
-            <p className="text-[11px] text-slate-400 font-medium mt-0.5">Uptime SLA</p>
-          </div>
-          <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-3.5 text-center">
-            <p className="text-xl sm:text-2xl font-black text-cyan-400 tabular-nums tracking-tight">&lt; 15ms</p>
-            <p className="text-[11px] text-slate-400 font-medium mt-0.5">Ledger Latency</p>
-          </div>
-          <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-3.5 text-center">
-            <p className="text-xl sm:text-2xl font-black text-violet-400 tabular-nums tracking-tight">256-BIT</p>
-            <p className="text-[11px] text-slate-400 font-medium mt-0.5">SSL Encryption</p>
-          </div>
-        </div>
-
-        {/* Subsystems Cards Grid */}
+        {/* Core Components Section */}
         <section id="core-components" ref={subsystemRef} className="mt-28 text-left scroll-mt-24">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Platform Subsystems Architecture
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Platform Core Components
             </h2>
-            <p className="mt-3 text-xs sm:text-sm text-slate-400 font-medium">
-              Integrated subsystems powering the FINVERSE AI financial ecosystem. Hover over any card for ambient spotlight, or click to view its 4-stage process tree.
+            <p className="mt-3 text-sm text-slate-400 font-medium leading-relaxed">
+              Integrated subsystems powering the FINVERSE AI financial ecosystem. Hover over any card for ambient spotlight, or click to view its process tree.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {modules.map((mod, idx) => (
               <GoogleMaterialCard
                 key={mod.title}
